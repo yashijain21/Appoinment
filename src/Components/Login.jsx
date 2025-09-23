@@ -48,8 +48,8 @@ export default function OtpLogin() {
     <div className="min-h-screen w-screen flex items-center justify-center bg-white relative overflow-hidden px-4">
       {/* Background Shapes */}
       <div className="absolute w-[430px] h-[520px] flex items-center justify-center">
-        <div className="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-b from-[#2b9fd9] to-[#9bd9f8] -left-20 -top-50"></div>
-        <div className="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-r from-[#9cc43f] to-[#e3fda7] -right-8 -bottom-50"></div>
+        <div className="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-b from-[#2b9fd9] to-[#9bd9f8] -left-20 -top-30"></div>
+        <div className="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-r from-[#9cc43f] to-[#e3fda7] -right-8 -bottom-30"></div>
       </div>
 
       {/* OTP Login Form */}
