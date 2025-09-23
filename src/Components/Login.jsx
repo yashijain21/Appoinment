@@ -45,22 +45,34 @@ export default function OtpLogin() {
   };
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-white relative overflow-hidden px-4">
-      {/* Background Shapes */}
-      <div className="absolute w-[430px] h-[520px] flex items-center justify-center">
-        <div className="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-b from-[#2b9fd9] to-[#9bd9f8] -left-20 -top-30"></div>
-        <div className="absolute h-[200px] w-[200px] rounded-full bg-gradient-to-r from-[#9cc43f] to-[#e3fda7] -right-8 -bottom-30"></div>
-      </div>
+    <div className="min-h-screen w-screen flex items-center justify-center bg-black relative overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay (dark layer for readability) */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-0"></div>
 
       {/* OTP Login Form */}
       <form className="relative w-full max-w-sm sm:max-w-md bg-white/10 rounded-xl backdrop-blur-md border border-white/10 shadow-[0_0_40px_rgba(8,7,16,0.6)] p-8 sm:p-10 z-10">
-        <h3 className="text-2xl sm:text-3xl font-medium text-black text-center mb-6">
+        <h3 className="text-2xl sm:text-3xl font-medium text-white text-center mb-6">
           {step === 1 ? "Login with Email" : "Enter OTP"}
         </h3>
 
         {step === 1 ? (
           <>
-            <label htmlFor="email" className="block text-black font-medium mt-6 text-sm sm:text-base">
+            <label
+              htmlFor="email"
+              className="block text-white font-medium mt-6 text-sm sm:text-base"
+            >
               Email
             </label>
             <input
@@ -69,18 +81,21 @@ export default function OtpLogin() {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full h-12 mt-2 px-3 rounded bg-black/10 text-white text-sm placeholder-gray-300 focus:outline-none"
+              className="w-full h-12 mt-2 px-3 rounded bg-black/40 text-white placeholder-gray-300 focus:outline-none"
             />
             <button
               onClick={handleSendOtp}
-              className="w-full mt-10 py-3 bg-black text-white text-lg font-semibold rounded-md cursor-pointer hover:bg-gray-200 transition"
+              className="w-full mt-10 py-3 bg-[#34a2d9] text-white text-lg font-semibold rounded-md cursor-pointer hover:bg-blue-700 transition"
             >
               Send OTP
             </button>
           </>
         ) : (
           <>
-            <label htmlFor="otp" className="block text-black font-medium mt-6 text-sm sm:text-base">
+            <label
+              htmlFor="otp"
+              className="block text-white font-medium mt-6 text-sm sm:text-base"
+            >
               OTP
             </label>
             <input
@@ -89,11 +104,11 @@ export default function OtpLogin() {
               placeholder="Enter OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="w-full h-12 mt-2 px-3 rounded bg-white/10 text-black text-sm placeholder-gray-800 focus:outline-none"
+              className="w-full h-12 mt-2 px-3 rounded bg-black/40 text-white placeholder-gray-300 focus:outline-none"
             />
             <button
               onClick={handleVerifyOtp}
-              className="w-full mt-10 py-3 bg-black text-white text-lg font-semibold rounded-md cursor-pointer hover:bg-gray-400 transition"
+              className="w-full mt-10 py-3 bg-[#99bf37] text-white text-lg font-semibold rounded-md cursor-pointer hover:bg-green-700 transition"
             >
               Verify & Login
             </button>
