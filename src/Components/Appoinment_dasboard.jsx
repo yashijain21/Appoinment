@@ -60,6 +60,26 @@ const AppointmentsDashboard = () => {
     acc[s] = (acc[s] || 0) + 1;
     return acc;
   }, {});
+  const handleStatusUpdate = async (id, newStatus) => {
+  try {
+    const res = await axios.patch('/appointments/status', { id, status: newStatus });
+    
+    // Update local state
+    setAppointments(prev => prev.map(appt =>
+      appt._id === id ? { ...appt, status: newStatus } : appt
+    ));
+
+    if (selectedAppt?._id === id) {
+      setSelectedAppt(prev => ({ ...prev, status: newStatus }));
+    }
+
+    alert(`Status updated to ${newStatus}`);
+  } catch (err) {
+    console.error('Error updating status:', err);
+    alert('Failed to update status');
+  }
+};
+
 
   const growthSummary = (() => {
     const monthly = {};
